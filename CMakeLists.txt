@@ -83,6 +83,8 @@ target_include_directories(ipc_toolkit PUBLIC ${PROJECT_BINARY_DIR}/include)
 # For MSVC, do not use the min and max macros.
 target_compile_definitions(ipc_toolkit PUBLIC NOMINMAX)
 
+# target_compile_definitions(ipc_toolkit PUBLIC IPC_TOOLKIT_CONVERGENT)
+
 ################################################################################
 # Dependencies
 ################################################################################
@@ -185,8 +187,8 @@ if(IPC_TOOLKIT_WITH_CUDA)
     message(FATAL_ERROR "No CUDA support found!")
   endif()
 
-  # We need to explicitly state that we need all CUDA files in the particle 
-  # library to be built with -dc as the member functions could be called by 
+  # We need to explicitly state that we need all CUDA files in the particle
+  # library to be built with -dc as the member functions could be called by
   # other libraries and executables.
   set_target_properties(ipc_toolkit PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
 
@@ -200,9 +202,9 @@ if(IPC_TOOLKIT_WITH_CUDA)
   set_target_properties(ipc_toolkit PROPERTIES CUDA_ARCHITECTURES "70;75;86")
 
   if(APPLE)
-    # We need to add the path to the driver (libcuda.dylib) as an rpath, 
+    # We need to add the path to the driver (libcuda.dylib) as an rpath,
     # so that the static cuda runtime can find it at runtime.
-    set_property(TARGET ipc_toolkit 
+    set_property(TARGET ipc_toolkit
                  PROPERTY
                  BUILD_RPATH ${CMAKE_CUDA_IMPLICIT_LINK_DIRECTORIES})
   endif()

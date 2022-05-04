@@ -4,7 +4,7 @@
 
 #include <Eigen/Core>
 
-#include <ipc/collision_constraint.hpp>
+#include <ipc/collisions/constraints.hpp>
 #include <ipc/collision_mesh.hpp>
 
 namespace ipc {

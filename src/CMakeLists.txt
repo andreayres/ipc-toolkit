@@ -1,6 +1,4 @@
 set(SOURCES
-  collision_constraint.cpp
-  collision_constraint.hpp
   ipc.hpp
   ipc.cpp
   collision_mesh.cpp
@@ -19,6 +17,7 @@ target_sources(ipc_toolkit PRIVATE ${SOURCES})
 add_subdirectory(barrier)
 add_subdirectory(broad_phase)
 add_subdirectory(ccd)
+add_subdirectory(collisions)
 add_subdirectory(distance)
 add_subdirectory(friction)
 add_subdirectory(implicits)
